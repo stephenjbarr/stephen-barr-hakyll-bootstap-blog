@@ -29,11 +29,11 @@ main = hakyllWith config $ do
         compile copyFileCompiler
 
     -- Formula images
-    match "images/*.tex" $ do
-        route   $ setExtension "png"
-        compile $ getResourceBody
-            >>= loadAndApplyTemplate "templates/formula.tex" defaultContext
-            >>= xelatex >>= pdfToPng
+    -- match "images/*.tex" $ do
+    --     route   $ setExtension "png"
+    --     compile $ getResourceBody
+    --         >>= loadAndApplyTemplate "templates/formula.tex" defaultContext
+    --         >>= xelatex >>= pdfToPng
 
     -- Compress CSS
     match "css/*" $ do
@@ -217,6 +217,12 @@ feedCtx = mconcat
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
+    { deployCommand = "awsai s3 sync  /home/stevejb/Blog/stephen-barr-hakyll-bootstap-blog/_site/ \
+                       \s3://stephen-staging.barr-ai.labs.com --acl public-read --recursive "
+    }
+    -- The line style here is a "multiline literal":
+    -- http://book.realworldhaskell.org/read/characters-strings-and-escaping-rules.html.
+    -- Start with a \ at the end of the line, then 
     { deployCommand = "rsync --checksum -ave 'ssh -p 2222' \
                       \_site/* jaspervdj@jaspervdj.be:jaspervdj.be"
     }
@@ -225,11 +231,11 @@ config = defaultConfiguration
 --------------------------------------------------------------------------------
 feedConfiguration :: String -> FeedConfiguration
 feedConfiguration title = FeedConfiguration
-    { feedTitle       = "jaspervdj - " ++ title
-    , feedDescription = "Personal blog of jaspervdj"
-    , feedAuthorName  = "Jasper Van der Jeugt"
-    , feedAuthorEmail = "jaspervdj@gmail.com"
-    , feedRoot        = "http://jaspervdj.be"
+    { feedTitle       = "Stephen J. Barr - " ++ title
+    , feedDescription = "Personal blog of Stephen J. Barr"
+    , feedAuthorName  = "Stephen J. Barr"
+    , feedAuthorEmail = "stephen@planetbarr.com"
+    , feedRoot        = "http://stephen.planetbarr.com"
     }
 
 
