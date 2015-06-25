@@ -48,8 +48,8 @@ main = hakyllWith config $ do
     -- Build tags
     tags <- buildTags "posts/*" (fromCapture "tags/*.html")
 
-    -- Render each and every post
-    match "posts/*" $ do
+    -- Render each and every markdown post
+    match "posts/*.markdown" $ do
         route   $ setExtension ".html"
         compile $ do
             pandocCompiler
@@ -59,6 +59,26 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/content.html" defaultContext
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
+
+    -- Render the html posts. By using getResourceBody, we keep the custom tags
+    -- we set using org-mode
+    match "posts/*.html" $ do
+        route idRoute
+        compile $ getResourceBody
+          >>= saveSnapshot "content"
+          >>= return . fmap demoteHeaders
+          >>= loadAndApplyTemplate "templates/post.html"    (postCtx tags)
+          >>= loadAndApplyTemplate "templates/content.html" defaultContext
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
+          >>= relativizeUrls
+
+    -- Copy any org-mode files directly, so that people can view the org-source
+    -- if they would like.
+    -- Need to fix once I figure out https://github.com/jaspervdj/hakyll/issues/338
+    -- match "posts/*.org" $ do
+    --     route   idRoute
+    --     compile copyFileCompiler
+
 
     -- Post list
     create ["posts.html"] $ do
