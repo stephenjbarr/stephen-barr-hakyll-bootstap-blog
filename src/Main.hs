@@ -138,12 +138,25 @@ main = hakyllWith config $ do
     match "templates/*" $ compile $ templateCompiler
 
     -- Render some static pages
+    -- match (fromList pages) $ do
+    --     route   $ setExtension ".html"
+    --     compile $ pandocCompiler
+    --         >>= loadAndApplyTemplate "templates/content.html" defaultContext
+    --         >>= loadAndApplyTemplate "templates/default.html" defaultContext
+    --         >>= relativizeUrls
+
+    -- Render some static html pages
     match (fromList pages) $ do
-        route   $ setExtension ".html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/content.html" defaultContext
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+        route idRoute
+        compile $ getResourceBody
+          -- >>= saveSnapshot "content"
+          -- >>= return . fmap demoteHeaders
+          -- >>= loadAndApplyTemplate "templates/post.html"    (postCtx tags)
+          >>= loadAndApplyTemplate "templates/content.html" defaultContext
+          >>= loadAndApplyTemplate "templates/default.html" defaultContext
+          >>= relativizeUrls
+
+
 
     -- Render the 404 page, we don't relativize URL's here.
     match "404.html" $ do
@@ -208,8 +221,9 @@ main = hakyllWith config $ do
                 >>= relativizeUrls
   where
     pages =
-        [ "contact.markdown"
-        , "links.markdown"
+        [ "contact.html",
+          "bio.html" 
+        -- , "links.markdown"
         ]
 
     writeXeTex =
