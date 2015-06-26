@@ -222,7 +222,8 @@ main = hakyllWith config $ do
   where
     pages =
         [ "contact.html",
-          "bio.html" 
+          "bio.html",
+          "research/main.html"
         -- , "links.markdown"
         ]
 

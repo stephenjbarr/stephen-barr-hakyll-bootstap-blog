@@ -1,0 +1,17 @@
+#+TITLE: Research Page
+#+AUTHOR: Stephen
+#+DATE: 2015-06-25
+#+SEQ_TODO: TODO(t) STARTED(s) WAITING(w) DELEGATED(g) APPT(a) | DONE(d) DEFERRED(f) CANCELLED(c)
+#+HTML_DOCTYPE: html5
+#+OPTIONS: toc:nil   
+#+FILETAGS: blog org-mode hakyll haskell bootstrap howto
+#+LATEX_CLASS: myfdparticle
+
+* Healthcare Operations
+
+* Machine Learning
+
+* On-Demand Labor and Services
+
+* Functional Programming in Dynamic Programs in Inventory Control
+
