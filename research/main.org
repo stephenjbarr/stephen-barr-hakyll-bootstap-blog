@@ -7,11 +7,74 @@
 #+FILETAGS: blog org-mode hakyll haskell bootstrap howto
 #+LATEX_CLASS: myfdparticle
 
-* Healthcare Operations
+* Health Care Operations
+  :PROPERTIES:
+  :ID:       9f460e76-5b71-4e08-aa9e-7dbcba67ecff
+  :END:
+  It is here that I am finding my passion.
+  As an operations management person, inefficiency makes me cringe.
+  As a human being, needless suffering is unconscionable.
+  By looking at health care operations, I can work on both problems simultaneously.
+
+  In a recent book, cite:wachter_digital_2015 ([[http://smile.amazon.com/Digital-Doctor-Hope-Medicines-Computer/dp/0071849467/ref%3Dsr_1_1?ie%3DUTF8&qid%3D1435381426&sr%3D8-1&keywords%3Ddigital%2Bdoctor][Amazon]]), Robert Watcher makes the case that in the United States, people die as a result of medical errors at a rate of one jumbo get per day.
+  In the seminal, controversial book cite:america_err_2000 ([[http://www.amazon.com/Err-Human-Building-Health-System/dp/0309261740/ref%3Dsr_1_1?ie%3DUTF8&qid%3D1435381688&sr%3D8-1&keywords%3Dto%2Berr%2Bis%2Bhuman][Amazon]]) by the Committee on Quality of Health in America, 1/50 times a patient in a hospital is given a pill, it is not the pill that either the patient or the medical staff believe it to be.
+  These add to a huge body of anecdotes suggesting that there is room for improvement.
+  
+  I am interested in using machine learning and optimization to improve health care quality.
+  
 
 * Machine Learning
+  :PROPERTIES:
+  :ID:       cd383590-8079-42e3-8f5f-6bc86a0dec5b
+  :END:
+  
+  I find machine learning extremely interesting and I have been working on adding to my skill set as a data scientist.
+  I took Andrew Ng's [[https://www.coursera.org/course/ml][machine learning]] course and Daphne Koller's [[https://www.coursera.org/course/pgm][probabilistic graphical models course]].
+  During a seminar at the UW taught by Pat Bajari, I got introduced to Judea Pearl's work on [[http://bayes.cs.ucla.edu/BOOK-2K/][causality]].
 
+  
 * On-Demand Labor and Services
+  :PROPERTIES:
+  :ID:       4b97ed43-bf79-48a3-9fbc-c08262ba83dd
+  :END:
+
+  Services like Uber, Instacart, Car2Go, Pronto, AirBnB, SpoonRocket, Caviar, and more are changing their respective industries. 
+  A few years ago, having groceries delivered was a service only accessible to the wealthy.
+  Taxi services were unreliable, paying in cash was cumbersome, and paying with cards even more so.
+  Due to the taxi's fixed pricing scheme, demand was not well matched with supply.
+  Renting a house from another individual was a high-risk gamble on the part of both the buyer and the seller.
+  All of these issues are quickly fading into oblivion.
+  
+  On a personal level, these services have improved my life dramatically.
+  I try to take the bus as much as possible, but it is great to know that I can take an Uber when I need to, and the price of using Uber is far cheaper than leasing a second car.
+  
+  From a operations perspective, being able to provide quality of service estimations becomes an interesting statistical problem.
+  There will be interesting and unexpected emergent behaviors by the agents.
+
+* Functional Programming
+  :PROPERTIES:
+  :ID:       673bce62-44e5-435f-9b26-8bf643a47a9d
+  :END:
+  Functional programming is the paradigm where functions in math behave like functions in code.
+  That is, they do not have side effects.  
+  $f(x)$ is always $f(x)$, regardless of what the rest of the universe is doing.
+
+  The difference between what a function is in /math/ vs what it is in  /programming/ can cause huge impedance mismatch.
+  I have observed this especially for people approaching programming from a math background.
+  There is some beautiful and interesting theory about the optimizations that are possible when functions are constrained in this way.
+  Also, functional programming has strong connections to category theory.
 
 * Functional Programming in Dynamic Programs in Inventory Control
+  :PROPERTIES:
+  :ID:       bda2ce11-a844-4337-9a64-a759ca6f91c6
+  :END:
+  I have a working paper with my advisor and some other UW professors on inventory control in a 1-warehouse multiple-retailer setting, which constraints on what is known by the the involved parties.
+  As part of this project, I wrote a finite horizon dynamic program solver in Haskell.
+  I found finite horizon dynamic programming to be a natural fit for functional programming, and Haskell itself to be a very fun and efficient way of implementing a very performant solver.
 
+  
+
+* TODO Make individual pages going into each topic in more detail
+
+
+  [[bibliography:/home/stevejb/Dropbox/bibliography/sjbmainbib.bib]]
