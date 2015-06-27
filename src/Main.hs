@@ -151,7 +151,7 @@ main = hakyllWith config $ do
         compile $ getResourceBody
           -- >>= saveSnapshot "content"
           -- >>= return . fmap demoteHeaders
-          -- >>= loadAndApplyTemplate "templates/post.html"    (postCtx tags)
+          >>= loadAndApplyTemplate "templates/post.html"    (postCtx tags)
           >>= loadAndApplyTemplate "templates/content.html" defaultContext
           >>= loadAndApplyTemplate "templates/default.html" defaultContext
           >>= relativizeUrls

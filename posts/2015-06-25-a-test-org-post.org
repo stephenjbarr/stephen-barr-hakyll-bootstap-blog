@@ -13,3 +13,6 @@
    #+begin_src haskell
 let x = [1..10]
    #+end_src
+
+* Some math
+  $x^{2}$.
