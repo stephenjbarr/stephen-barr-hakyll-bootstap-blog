@@ -256,15 +256,12 @@ feedCtx = mconcat
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
-    { deployCommand = "awsai s3 sync  /home/stevejb/Blog/stephen-barr-hakyll-bootstap-blog/_site/ \
-                       \s3://stephen-staging.barr-ai.labs.com --acl public-read --recursive "
+    { deployCommand = "aws --profile=sjbai1 s3 sync  /home/stevejb/Blog/stephen-barr-hakyll-bootstap-blog/_site/ \
+                       \s3://stephen-staging.barr-ai.labs.com --acl public-read "
     }
     -- The line style here is a "multiline literal":
     -- http://book.realworldhaskell.org/read/characters-strings-and-escaping-rules.html.
     -- Start with a \ at the end of the line, then 
-    { deployCommand = "rsync --checksum -ave 'ssh -p 2222' \
-                      \_site/* jaspervdj@jaspervdj.be:jaspervdj.be"
-    }
 
 
 --------------------------------------------------------------------------------
